@@ -130,11 +130,13 @@ This element is `display:block` by default, but you can set the `inline` attribu
       }
 
       .input-content.is-invalid ::content input {
-        border: solid 1px var(--vellum-input-container-invalid-color, --error-color);
+        border: solid 1px red;
       }
 
       /* Firefox sets a min-width on the input, which can cause layout issues */
       .input-content ::content input {
+        width:100%;
+        box-sizing: border-box;
         min-width: 0;
       }
 
@@ -154,10 +156,7 @@ This element is `display:block` by default, but you can set the `inline` attribu
         color: var(--vellum-input-container-focus-color, --primary-color);
       }
     </style>
-<!-- 
-    <template is="dom-if" if="[[!noLabelFloat]]">
-      <div class="floated-label-placeholder" aria-hidden="true">&nbsp;</div>
-    </template> -->
+    
 
     <div class$="[[_computeInputContentClass(noLabelFloat,alwaysFloatLabel,focused,invalid,_inputHasContent)]]">
       <content select="[prefix]" id="prefix"></content>
